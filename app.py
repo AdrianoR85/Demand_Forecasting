@@ -31,57 +31,57 @@ st.set_page_config(
 st.markdown("""
 <style>
   /* Global */
-  html, body, [data-testid="stAppViewContainer"], [data-testid="stMain"] {
-      background-color: #0d1117 !important;
-      color: #e6edf3;
-  }
-  [data-testid="stSidebar"] {
-      background-color: #161b22 !important;
-      border-right: 1px solid #21262d;
-  }
+html, body, [data-testid="stAppViewContainer"], [data-testid="stMain"] {
+    background-color: #0d1117 !important;
+    color: #e6edf3;
+}
+[data-testid="stSidebar"] {
+    background-color: #161b22 !important;
+    border-right: 1px solid #21262d;
+}
   /* Cards */
-  div[data-testid="metric-container"] {
-      background: #161b22;
-      border: 1px solid #21262d;
-      border-radius: 10px;
-      padding: 16px 20px;
-  }
-  div[data-testid="metric-container"] label { color: #7d8590 !important; font-size: 12px; }
-  div[data-testid="metric-container"] [data-testid="stMetricValue"] { color: #e6edf3 !important; font-size: 26px; font-weight: 700; }
-  div[data-testid="metric-container"] [data-testid="stMetricDelta"] svg { display: none; }
+div[data-testid="metric-container"] {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 10px;
+    padding: 16px 20px;
+}
+div[data-testid="metric-container"] label { color: #7d8590 !important; font-size: 12px; }
+div[data-testid="metric-container"] [data-testid="stMetricValue"] { color: #e6edf3 !important; font-size: 26px; font-weight: 700; }
+div[data-testid="metric-container"] [data-testid="stMetricDelta"] svg { display: none; }
   /* Tabs */
-  button[data-baseweb="tab"] { color: #7d8590 !important; }
-  button[data-baseweb="tab"][aria-selected="true"] { color: #58a6ff !important; border-bottom-color: #58a6ff !important; }
+button[data-baseweb="tab"] { color: #7d8590 !important; }
+button[data-baseweb="tab"][aria-selected="true"] { color: #58a6ff !important; border-bottom-color: #58a6ff !important; }
   /* Dataframe */
-  [data-testid="stDataFrame"] { border: 1px solid #21262d; border-radius: 8px; }
+[data-testid="stDataFrame"] { border: 1px solid #21262d; border-radius: 8px; }
   /* Buttons */
-  .stButton > button {
-      background: #21262d; color: #e6edf3;
-      border: 1px solid #30363d; border-radius: 8px;
-  }
-  .stButton > button:hover { background: #30363d; border-color: #58a6ff; }
+.stButton > button {
+    background: #21262d; color: #e6edf3;
+    border: 1px solid #30363d; border-radius: 8px;
+}
+.stButton > button:hover { background: #30363d; border-color: #58a6ff; }
   /* Download button */
-  .stDownloadButton > button {
-      background: #1f6feb; color: white;
-      border: none; border-radius: 8px; width: 100%;
-  }
+.stDownloadButton > button {
+    background: #1f6feb; color: white;
+    border: none; border-radius: 8px; width: 100%;
+}
   /* Divider */
-  hr { border-color: #21262d; }
+hr { border-color: #21262d; }
   /* Selectbox, slider labels */
-  label { color: #c9d1d9 !important; }
-  .stSelectbox div[data-baseweb="select"] > div { background: #161b22 !important; border-color: #30363d !important; color: #e6edf3; }
+label { color: #c9d1d9 !important; }
+.stSelectbox div[data-baseweb="select"] > div { background: #161b22 !important; border-color: #30363d !important; color: #e6edf3; }
 </style>
 """, unsafe_allow_html=True)
 
 # ── Header ────────────────────────────────────────────────────────────────────
 st.markdown("""
 <div style="padding: 8px 0 20px 0;">
-  <h1 style="color:#e6edf3; font-size:2rem; font-weight:800; margin:0;">
+<h1 style="color:#e6edf3; font-size:2rem; font-weight:800; margin:0;">
     📈 Demand Forecasting
-  </h1>
-  <p style="color:#7d8590; margin:4px 0 0 0; font-size:0.95rem;">
+</h1>
+<p style="color:#7d8590; margin:4px 0 0 0; font-size:0.95rem;">
     Prophet-powered sales prediction · Built-in dataset or upload your own
-  </p>
+</p>
 </div>
 """, unsafe_allow_html=True)
 
