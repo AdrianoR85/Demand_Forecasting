@@ -23,9 +23,9 @@ def train_and_forecast(
     avoid unhashable-type errors (cache key is based on repr).
     """
     model = Prophet(
-        yearly_seasonality=True,
-        weekly_seasonality=False,
-        daily_seasonality=False,
+        yearly_seasonality=True, # type: ignore
+        weekly_seasonality=False, # type: ignore
+        daily_seasonality=False, # type: ignore
         seasonality_mode="multiplicative",
         changepoint_prior_scale=changepoint_prior,
         interval_width=interval_width,
@@ -60,7 +60,7 @@ def compute_kpis(monthly: pd.DataFrame, forecast: pd.DataFrame, cutoff: pd.Times
     last_6_hist  = hist.tail(6)["y"].mean()
     next_6_fore  = future.mean()
     trend_pct    = ((next_6_fore - last_6_hist) / last_6_hist * 100) if last_6_hist else 0
-    peak_month   = hist.loc[hist["y"].idxmax(), "ds"].strftime("%b %Y")
+    peak_month   = hist.loc[hist["y"].idxmax(), "ds"].strftime("%b %Y") # type: ignore
     peak_value   = hist["y"].max()
 
     return {

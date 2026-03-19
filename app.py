@@ -145,7 +145,7 @@ if df is None:
     st.info("👈 Select a data source in the sidebar to get started.")
     st.stop()
 
-if not run:
+if not run: # type: ignore
     # Show a preview of the data while waiting
     st.markdown("### 📋 Dataset Preview")
     preview = df.rename(columns={
@@ -158,8 +158,8 @@ if not run:
     st.stop()
 
 # ── Run model ─────────────────────────────────────────────────────────────────
-with st.spinner(f"Training Prophet model for **{selected_product}**..."):
-    monthly = aggregate_monthly(filtered_df, selected_product)
+with st.spinner(f"Training Prophet model for **{selected_product}**..."): # type: ignore
+    monthly = aggregate_monthly(filtered_df, selected_product) # type: ignore
 
     if len(monthly) < 6:
         st.error("Not enough data to forecast (minimum 6 months required).")
@@ -167,9 +167,9 @@ with st.spinner(f"Training Prophet model for **{selected_product}**..."):
 
     model, forecast = train_and_forecast(
         monthly,
-        periods=forecast_months,
-        changepoint_prior=changepoint,
-        interval_width=confidence,
+        periods=forecast_months, # type: ignore
+        changepoint_prior=changepoint, # type: ignore
+        interval_width=confidence, # type: ignore
     )
 
 cutoff      = monthly["ds"].max()
@@ -177,7 +177,7 @@ result_df   = get_future_forecast(forecast, cutoff)
 kpis        = compute_kpis(monthly, forecast, cutoff)
 
 # ── KPI cards ─────────────────────────────────────────────────────────────────
-st.markdown(f"### 📊 {selected_product}")
+st.markdown(f"### 📊 {selected_product}") # type: ignore
 st.divider()
 
 trend_sign = "+" if kpis["trend_pct"] >= 0 else ""
@@ -199,7 +199,7 @@ st.divider()
 tab1, tab2, tab3 = st.tabs(["📈 Forecast Timeline", "📊 Monthly Breakdown", "🌀 Seasonality"])
 
 with tab1:
-    fig = forecast_chart(monthly, forecast, cutoff, selected_product)
+    fig = forecast_chart(monthly, forecast, cutoff, selected_product) # type: ignore
     st.pyplot(fig, use_container_width=True)
 
 with tab2:
@@ -223,6 +223,6 @@ csv_bytes = result_df.to_csv(index=False).encode("utf-8")
 st.download_button(
     label="⬇️ Download forecast as CSV",
     data=csv_bytes,
-    file_name=f"forecast_{selected_product.replace(' ', '_')}.csv",
-    mime="text/csv",
+    file_name=f"forecast_{selected_product.replace(' ', '_')}.csv", # type: ignore
+    mime="text/csv", 
 )

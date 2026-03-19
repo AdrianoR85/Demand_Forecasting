@@ -39,7 +39,7 @@ def forecast_chart(
     forecast: pd.DataFrame,
     cutoff: pd.Timestamp,
     product: str,
-) -> plt.Figure:
+) -> plt.Figure: # type: ignore
     """Main timeline chart: historical line + forecast ribbon."""
     fig, ax = _base_fig(figsize=(13, 5))
 
@@ -67,9 +67,9 @@ def forecast_chart(
             color=ACCENT_2, s=55, zorder=6, edgecolors=BG, linewidths=1.2)
 
     # Cutoff line
-    ax.axvline(cutoff, color=MUTED, linestyle=":", linewidth=1.2, alpha=0.6)
+    ax.axvline(cutoff, color=MUTED, linestyle=":", linewidth=1.2, alpha=0.6)# type: ignore
     ymax = ax.get_ylim()[1]
-    ax.text(cutoff, ymax * 0.97, "  Forecast start",
+    ax.text(cutoff, ymax * 0.97, "  Forecast start", # type: ignore
             color=MUTED, fontsize=8, va="top")
 
     ax.set_title(f"Sales Forecast — {product}",
@@ -85,7 +85,7 @@ def forecast_chart(
     return fig
 
 
-def bar_chart(result_df: pd.DataFrame) -> plt.Figure:
+def bar_chart(result_df: pd.DataFrame) -> plt.Figure: # type: ignore
     """Bar chart for the 6-month forecast with error bars."""
     fig, ax = _base_fig(figsize=(11, 4))
 
@@ -116,7 +116,7 @@ def bar_chart(result_df: pd.DataFrame) -> plt.Figure:
     return fig
 
 
-def seasonality_chart(forecast: pd.DataFrame) -> plt.Figure:
+def seasonality_chart(forecast: pd.DataFrame) -> plt.Figure: # type: ignore
     """Yearly seasonality component extracted from the Prophet forecast."""
     fig, ax = _base_fig(figsize=(11, 3.5))
 
